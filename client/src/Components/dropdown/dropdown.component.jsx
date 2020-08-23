@@ -25,7 +25,6 @@ export default function DropDown({Data, setModels, setTrims, setActiveTrim, titl
 
   // 1. SET VALUE AND TO USE IT TO TRIGGER QUERY ACTION
   const handleChange = (event) => {
-    console.log(event.target.value)
     if(title === ' Make') {setModels(null); setTrims(null); setActiveTrim(null);}
     if(title === 'Model') {setActiveTrim(null)}
     setValue(event.target.value);

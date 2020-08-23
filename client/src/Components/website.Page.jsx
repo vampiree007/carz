@@ -63,7 +63,7 @@ const Website = () => {
 
       // Toggle Btween Grid or Column View Handled Here
       const toggleView =() => {
-          const element = document.getElementById('latest_container')
+          const element = document.querySelector('.latest_container')
           element.classList.toggle('display_column')
       }
         return (
