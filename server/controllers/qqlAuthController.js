@@ -40,7 +40,6 @@ exports.protectGql = async (req, res, next = (f)=>f) => {
 
 exports.restrictToAdmin = (req, res, next) => {
       // roles ['admin', 'lead-guide']. role='user'
-      console.log(req.user.role)
       if (req.user.role === 'user') {
           throw new Error('You do not have permission to perform this action', 403)
       }

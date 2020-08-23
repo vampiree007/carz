@@ -21,13 +21,13 @@ import { Provider } from 'react-redux';
 import store from './Redux/store'
 
 // 1 creating websocket link
-const wsLink = new WebSocketLink({
-  uri: 'ws://localhost:8000/graphql',
+const wsLink = process.browser ? new WebSocketLink({
+  uri: 'wss://carrz.herokuapp.com/graphql',
   options: {
     reconnect: true,
-    timeout: 5000
+    timeout: 4000
   }
-});
+}) : null
 // 2 create http link
 const httpLink = new HttpLink({
   uri: '/graphql'
@@ -46,10 +46,10 @@ const authLink = setContext((_, { headers }) => {
 const httpAuthLink = authLink.concat(httpLink);
 
 // use split to split hhtp link or websocket link
-const link = split(({query})=>{
+const link = process.browser ? split(({query})=>{
   const definition = getMainDefinition(query);
   return(definition.kind === 'OperationDefinition' && definition.operation === 'subscription');
-}, wsLink, httpAuthLink);
+}, wsLink, httpAuthLink): httpAuthLink
 
 
 const client = new ApolloClient({
