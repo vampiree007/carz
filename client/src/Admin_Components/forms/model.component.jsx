@@ -23,6 +23,9 @@ const Model = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if( !values.model_make_id || !values.model_name){
+            return alert('All Fields Are Mandatory')
+        }
         createModel({ variables: { input: values } });
     };
 

@@ -26,6 +26,9 @@ const Make = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if( !values.make_id || !values.make_display || !values.make_is_common || !values.make_display || !values.make_country){
+            return alert('All Fields Are Mandatory')
+        }
         createMake({ variables: { input: values } });
     };
 

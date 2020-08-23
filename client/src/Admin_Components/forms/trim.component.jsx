@@ -46,6 +46,9 @@ const Trim = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if(!values.model_id || !values.model_make_id || values.model_name || values.model_trim || values.model_year){
+            return alert('First Five Fields Are Mandatory')
+        }
         createTrim({ variables: { input: values } });
     };
 
