@@ -42,7 +42,7 @@ const Website = () => {
             const model_name = models.makeModels[0].model_name;
             const model_trim = activeTrim ? `&model_trim=${activeTrim}` : ''
             
-          axios.get(`/api/v1/car/details?cmd=getTrims&model_make_id=${model_make_id}&model_name=${model_name}${model_trim}`)
+          axios.get(`/api/v1/car/details?cmd=getTrims&model_name=${model_name}${model_trim}`)
           .then(res=> res.data.data.data)
           .then(array => {
             if(array.length > 0){
