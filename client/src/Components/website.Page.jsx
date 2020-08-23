@@ -15,7 +15,7 @@ const Website = () => {
     const [searchResult, setSearchResult] = React.useState(null);
     const Makes = useQuery(TOTAL_MAKES);
     const latestTrims= useQuery(LATEST_TRIMS)
-    console.log(latestTrims)
+
     const { data: post } = useSubscription(POST_ADDED, {
         onSubscriptionData: async ({ client: { cache }, subscriptionData: {data} }) => {
           // readQuery from cache
