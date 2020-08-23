@@ -30,7 +30,7 @@ const wsLink = new WebSocketLink({
 
 // 2 create http link
 const httpLink = new HttpLink({
-  uri: '/graphql'
+  uri: 'https://carrz.herokuapp.com/graphql'
 })
 // 3 set up authorization
 const authLink = setContext((_, { headers }) => {
