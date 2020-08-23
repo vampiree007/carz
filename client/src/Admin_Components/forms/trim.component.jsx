@@ -40,7 +40,7 @@ const Trim = (props) => {
     const [createTrim] = useMutation(TRIM_CREATE, {
         update: ({ data }) => {
             console.log('TRIM CREATE MUTATION IN PROFILE', data);
-            toast.success('TRIM_CREATED');
+            alert('TRIM_CREATED');
         }
     });
 
