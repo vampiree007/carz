@@ -63,8 +63,10 @@ const Website = () => {
 
       // Toggle Btween Grid or Column View Handled Here
       const toggleView =() => {
-          const element = document.querySelector('.latest_container')
-          element.classList.toggle('display_column')
+          const element = document.getElementById('latest_container');
+          const searchElement = document.getElementById('search_container')
+          element.classList.toggle('display_column');
+          searchElement.classList.toggle('display_column');
       }
         return (
             <div>
@@ -78,7 +80,7 @@ const Website = () => {
                     <button className="search_button" onClick={()=> search()}>Search</button>
                     </div> : null
                 }
-                <div className="latest_container">
+                <div className="latest_container" id="search_container">
                 {
                     // SEARCH RESULTS WILL GENERATE HERE
                     searchResult && searchResult.map((result,i)=>{

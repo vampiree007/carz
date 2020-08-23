@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {TRIM_CREATE} from '../../graphql/mutation';
-import { toast, ToastContainer } from 'react-toastify';
 import { useMutation } from '@apollo/react-hooks';
 import Input from './formComponents/input.component';
 import Button from './formComponents/button.component';
@@ -57,7 +56,6 @@ const Trim = (props) => {
     };
     return (
         <div className="form_grid">
-            <ToastContainer />
             <form onSubmit={handleSubmit} >
                 <div className="equal_three">
                     {
