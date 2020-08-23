@@ -9,6 +9,7 @@ A. INSTALL NODE MODULES
 B. CREATE 
 
 1. Create .env file in the root folder i.e. Config.env ---- Paste Below Code
+
 NODE_ENV=development
 PORT=8000
 DATABASE=<YOUR_MONGO_URL_PASTE_HERE>  ----- Don't wrap with '';
