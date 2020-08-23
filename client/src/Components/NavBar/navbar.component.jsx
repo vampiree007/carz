@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 function NavBar(props) {
   const location = useLocation();
   const path = location.pathname;
-  
+
   const dispatch = useDispatch()
 
   let auth = false
@@ -68,13 +68,13 @@ function NavBar(props) {
           }
           <Typography variant="h6" className={classes.title}>
             <Link to="/cars">
-              <img src={Logo} alt="logo" style={{width:'33px', marginTop:'10px'}} />
+              <img src={Logo} alt="logo" style={{width:'33px', marginTop:'10px', marginLeft:'4px'}} />
             </Link>
           </Typography>
           {
             user && user.role ==='admin' ?
             <Link to={'/admin'}> 
-            <AccountCircle style={{color:'#fff', fontSize:'30px', marginTop:'5px', marginRight:'10px'}} /> 
+            <AccountCircle style={{color:'#fff', fontSize:'30px', marginTop:'5px', marginRight:'5px'}} /> 
             </Link> : null
           }
           {auth ?
