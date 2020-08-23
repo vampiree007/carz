@@ -25,7 +25,7 @@ function App(props) {
             <Route exact path={`/cars`} component={AuthCheck(Website, true)} />
             <Route exact path={`/login`} component={AuthCheck(Login, false)} />
             <Route exact path={`/register`} component={Signup} />
-            <Redirect from='/' to="/cars" />
+            <Redirect exact from='/' to="/cars" />
           </Switch>
     </div>
   );
