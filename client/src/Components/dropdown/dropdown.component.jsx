@@ -63,7 +63,6 @@ export default function DropDown({Data, setModels, setTrims, setActiveTrim, titl
 
   // 5. FINAL TRIM SELECTION VALUE SET HERE
   const set = (val) => {
-    console.log(val)
     if(title === 'Trim' && val){
       setActiveTrim(val)
     }
