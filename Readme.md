@@ -8,7 +8,7 @@ A. INSTALL NODE MODULES
 
 B. CREATE 
 
-Create .env file in the root folder i.e. Config.env ---- Paste Below Code
+Create .env file in the root folder i.e. Config.env ---- Paste Below Values -- remove numbering
 
   1. NODE_ENV=development
   2. PORT=8000
