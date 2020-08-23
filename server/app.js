@@ -60,7 +60,9 @@ app.use(xss());
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/car', carRouter);
 ////////////////////////////////////////////////////
-
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../client/build", "index.html")); // <- try "index.html"
+});
 app.use(globalErrorHandler);
 module.exports = app;
 
