@@ -2,7 +2,6 @@ import React from 'react';
 import './sideDrawer.styles.css';
 import CreateIcon from '@material-ui/icons/Create';
 import VisibilityIcon from '@material-ui/icons/Visibility';
-//import {useHistory} from 'react-router-dom';
 
 const SideDrawer = (props) => {
     const autoHeight = (e) => {

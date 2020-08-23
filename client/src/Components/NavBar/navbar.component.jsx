@@ -10,7 +10,7 @@ import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import {logoutUser} from '../../Redux/Users/users.actions';
 const Logo = require('../../Assets/images/honda-256.ico')
 
@@ -27,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function NavBar(props) {
+  const location = useLocation();
+  const path = location.pathname;
+  
   const dispatch = useDispatch()
 
   let auth = false
@@ -57,9 +60,12 @@ function NavBar(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton onClick={()=>{toggleSidebar()}} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
+          {
+            path === '/admin' && 
+              <IconButton onClick={()=>{toggleSidebar()}} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+              <MenuIcon />
+              </IconButton>
+          }
           <Typography variant="h6" className={classes.title}>
             <Link to="/cars">
               <img src={Logo} alt="logo" style={{width:'33px', marginTop:'10px'}} />
