@@ -22,7 +22,7 @@ import store from './Redux/store'
 
 // 1 creating websocket link
 const wsLink = new WebSocketLink({
-  uri: 'wss://carrz.herokuapp.com/graphql',
+  uri: 'ws://localhost:8000/graphql',
   options: {
     reconnect: true,
     timeout: 5000

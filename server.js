@@ -35,7 +35,7 @@ const resolvers = mergeResolvers(fileLoader(
 const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
-  context: ({req}) => ({req, pubsub})
+  context: ({req, connection}) => ({req, pubsub,connection})
 });
 ////////////////////////////////////////////////////
 

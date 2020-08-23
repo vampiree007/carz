@@ -15,8 +15,7 @@ const Website = () => {
     const [searchResult, setSearchResult] = React.useState(null);
     const Makes = useQuery(TOTAL_MAKES);
     const latestTrims= useQuery(LATEST_TRIMS)
-
-    useSubscription(POST_ADDED, {
+    const { data: post } = useSubscription(POST_ADDED, {
         onSubscriptionData: async ({ client: { cache }, subscriptionData: {data} }) => {
           // readQuery from cache
           const {eightTrims} = cache.readQuery({
@@ -35,7 +34,7 @@ const Website = () => {
             });
         }
       });
-      const fetchPosts = useLazyQuery(LATEST_TRIMS);
+      const [fetchPosts, { data: posts }] = useLazyQuery(LATEST_TRIMS);
       
       const search = () => {
           if(!models) return alert('please select input first')
