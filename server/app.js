@@ -39,7 +39,6 @@ if (process.env.NODE_ENV === 'development') {
 ///////////////////////////////////////////////////////////////////////////////
 // Serving static files
 app.use(express.static(path.join(__dirname, 'build')));
-console.log(__dirname)
 app.use(express.static("client/build"));
 //////////////////////////////////////////////////
 

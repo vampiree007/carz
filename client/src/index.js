@@ -30,7 +30,7 @@ const wsLink = new WebSocketLink({
 
 // 2 create http link
 const httpLink = new HttpLink({
-  uri: process.env.REACT_APP_HTTP_END_POINT
+  uri: '/graphql'
 })
 // 3 set up authorization
 const authLink = setContext((_, { headers }) => {
