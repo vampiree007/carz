@@ -14,8 +14,12 @@ const Website = () => {
     const [trims, setTrims] = React.useState(null);
     const [activeTrim, setActiveTrim] = React.useState(null);
     const [searchResult, setSearchResult] = React.useState(null);
+
+    // + Subsequent Queries to populate Dropdowns
     const Makes = useQuery(TOTAL_MAKES);
     const latestTrims= useQuery(LATEST_TRIMS)
+
+    // + Call Subscription to fetch realtime Data:: Listening
     const { data: post } = useSubscription(POST_ADDED, {
         onSubscriptionData: async ({ client: { cache }, subscriptionData: {data} }) => {
           // readQuery from cache
@@ -37,6 +41,7 @@ const Website = () => {
       });
       const [fetchPosts, { data: posts }] = useLazyQuery(LATEST_TRIMS);
       
+      // + Search for the trim on the basis of user selection
       const search = () => {
           if(!models) return alert('please select input first')
             const model_make_id = Makes.data.totalMakes[0].make_id;
@@ -47,12 +52,16 @@ const Website = () => {
           .then(res=> res.data.data.data)
           .then(array => {
             if(array.length > 0){
+                // Set Search Result to State to Render Result
                 setSearchResult(array)
             }else{
+                // Alert if No result found
                 alert('no result found')
             }
           })
       }
+
+      // Toggle Btween Grid or Column View Handled Here
       const toggleView =() => {
           const element = document.getElementById('latest_container')
           element.classList.toggle('display_column')
