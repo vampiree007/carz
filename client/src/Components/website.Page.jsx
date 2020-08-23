@@ -10,6 +10,7 @@ import CarCard from './carCard/carCard.component';
 
 const Website = () => {
     const [models, setModels] = React.useState(null);
+    //const [activeMake, setActiveMake] = React.useState(null);
     const [trims, setTrims] = React.useState(null);
     const [activeTrim, setActiveTrim] = React.useState(null);
     const [searchResult, setSearchResult] = React.useState(null);
