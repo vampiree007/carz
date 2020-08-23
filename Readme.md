@@ -1,5 +1,3 @@
-// PROJECT RUNNING GUIDE //
-
 A. INSTALL NODE MODULES
 
 1. Run NPM Install from Root Folder  ---- server-side
