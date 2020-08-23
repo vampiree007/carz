@@ -1,0 +1,24 @@
+.form_input{
+    height: 40px;
+    border: 2px solid rgb(196, 196, 196);
+    border-radius: 2px;
+    padding: 0 15px;
+    margin-bottom: 15px;
+    width: 75%;
+}
+button{
+    border:none;
+    outline: none;
+}
+.material_button{
+    box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 2px;
+    background-color: #f50057;
+    color: #fff;
+    cursor: pointer;
+}
+.material_button:hover{
+    background-color: #3a3403;
+}

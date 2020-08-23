@@ -1,0 +1,29 @@
+.dashboard{
+    display: flex;
+    justify-content: space-between;
+}
+.dashboard_main{
+    width: 100%;
+}
+.dashboard_main h1{
+    margin: 0;
+    font-size: 23px;
+    padding: 14px 21px;
+    margin-bottom: 25px;
+    color: #555555;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgb(223, 223, 223);
+}
+.dashboard_tab{
+    padding: 0 21px;
+}
+.dashboard_tab .equal_three{
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+}
+@media (max-width:760px){
+    .dashboard_tab .equal_three{
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+}

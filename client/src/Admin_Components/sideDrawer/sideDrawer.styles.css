@@ -1,0 +1,72 @@
+.side_drawer{
+    height: 90vh;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    color: #2b313f;
+    min-width: 240px;
+    box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+.side_drawer .header{
+    padding: 21px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom: 1px solid rgb(223, 223, 223);
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+}
+.side_drawer .header .header_tag{
+    position: absolute;
+    padding: 4px 7px;
+    background-color:rgba(3,154,229,.69);
+    color: #fff;
+    font-size: 11px;
+    border-radius: 2px;
+    right: 30px;
+    font-weight: 500;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.toggelable{
+    height: 55px;
+    padding: 14px 20px;
+    position: relative;
+    overflow: hidden;
+    font-size: 14px;
+    border-bottom: 1px solid rgb(223, 223, 223);
+    cursor: pointer;
+}
+.toggelable .action{
+    display: inline-block;
+    font-size: 14px;
+    margin-left: 10px;
+    position: absolute;
+    top: 17px;
+}
+.toggelable .menu{
+    margin-top: 20px;
+}
+.toggelable .menu .item{
+    padding: 10px 0;
+    transition: all;
+    transition-duration: .5s;
+    font-weight: 500;
+}
+.toggelable .menu .item:hover{
+    background-color: rgb(228, 228, 228);
+    padding-left: 10px;
+    border-left: 6px solid rgba(3,154,229,.69);
+}
+.auto_height{
+    height: auto !important;
+}
+@media (max-width:762px){
+    .side_drawer{
+        position: absolute;
+        left: -240px;
+        z-index: 99;
+    }
+    .toggle_sidebar{
+        left: 0 !important;
+    }
+}
