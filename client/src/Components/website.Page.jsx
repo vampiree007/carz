@@ -10,7 +10,7 @@ import CarCard from './carCard/carCard.component';
 
 const Website = () => {
     const [models, setModels] = React.useState(null);
-    //const [activeMake, setActiveMake] = React.useState(null);
+    const [activeMake, setActiveMake] = React.useState(null);
     const [trims, setTrims] = React.useState(null);
     const [activeTrim, setActiveTrim] = React.useState(null);
     const [searchResult, setSearchResult] = React.useState(null);
@@ -20,7 +20,7 @@ const Website = () => {
     const latestTrims= useQuery(LATEST_TRIMS)
 
     // + Call Subscription to fetch realtime Data:: Listening
-    const { data: post } = useSubscription(POST_ADDED, {
+    useSubscription(POST_ADDED, {
         onSubscriptionData: async ({ client: { cache }, subscriptionData: {data} }) => {
           // readQuery from cache
           const {eightTrims} = cache.readQuery({
@@ -39,16 +39,16 @@ const Website = () => {
             });
         }
       });
-      const [fetchPosts, { data: posts }] = useLazyQuery(LATEST_TRIMS);
+      const [fetchPosts] = useLazyQuery(LATEST_TRIMS);
       
       // + Search for the trim on the basis of user selection
       const search = () => {
-          if(!models) return alert('please select input first')
-            const model_make_id = Makes.data.totalMakes[0].make_id;
+          if(!models || !activeMake) return alert('please select input first')
+            const model_make_id = activeMake;
             const model_name = models.makeModels[0].model_name;
             const model_trim = activeTrim ? `&model_trim=${activeTrim}` : ''
             
-          axios.get(`/api/v1/car/details?cmd=getTrims&model_name=${model_name}${model_trim}`)
+          axios.get(`/api/v1/car/details?cmd=getTrims&model_make_id=${model_make_id}&model_name=${model_name}${model_trim}`)
           .then(res=> res.data.data.data)
           .then(array => {
             if(array.length > 0){
@@ -72,7 +72,7 @@ const Website = () => {
                     // ALL DROPDOWS WILL BE SET IN HERE
                     Makes.data ? 
                     <div className="header_dropdowns">
-                    <DropDown Data={Makes.data.totalMakes} setModels={setModels} title={'Make'} setTrims={setTrims} setActiveTrim={setActiveTrim} />
+                    <DropDown Data={Makes.data.totalMakes} setModels={setModels} setTrims={setTrims} setActiveTrim={setActiveTrim} title={'Make'} setActiveMake={setActiveMake} />
                     <DropDown Data={models && models.makeModels} setTrims={setTrims} setActiveTrim={setActiveTrim}  title={'Model'} />
                     <DropDown Data={trims && trims.modelTrims} title={'Trim'} setActiveTrim={setActiveTrim} />
                     <button className="search_button" onClick={()=> search()}>Search</button>

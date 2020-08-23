@@ -18,14 +18,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DropDown({Data, setModels, setTrims, setActiveTrim, title}) {          
+export default function DropDown({Data, setModels, setTrims, setActiveTrim, title, setActiveMake}) {          
   const classes = useStyles();
   const [value, setValue] = React.useState('');
 
 
   // 1. SET VALUE AND TO USE IT TO TRIGGER QUERY ACTION
   const handleChange = (event) => {
-    if(title === ' Make') {setModels(null); setTrims(null); setActiveTrim(null)}
+    console.log(event.target.value)
+    if(title === ' Make') {setModels(null); setTrims(null); setActiveTrim(null);}
     if(title === 'Model') {setActiveTrim(null)}
     setValue(event.target.value);
   };
@@ -55,11 +56,12 @@ export default function DropDown({Data, setModels, setTrims, setActiveTrim, titl
     if(makeModels.data){
       setTrims(null)
       setModels(makeModels.data)
+      setActiveMake(value)
     }
     if(modelTrims.data){
       setTrims(modelTrims.data)
     }
-  }, [makeModels.data, setModels, setTrims, modelTrims.data]);
+  }, [makeModels.data, setModels, setTrims, modelTrims.data, setActiveTrim,setActiveMake, value]);
 
   // 5. FINAL TRIM SELECTION VALUE SET HERE
   const set = (val) => {
